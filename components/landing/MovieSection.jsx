@@ -2,9 +2,9 @@ import React from "react";
 import HomeMovieCard from "./HomeMovieCard";
 
 export default function MovieSection({
-  popularMovies, 
+  popularMovies,
   top_rated_movies,
-  trendingMovies
+  trendingMovies,
 }) {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -15,12 +15,9 @@ export default function MovieSection({
           id="trendingMovies"
           className="flex space-x-4 overflow-x-auto pb-4"
         >
-            {
-                popularMovies.map((movie) => (
-                    <HomeMovieCard key={movie.id} movie={movie}/>
-                ))
-            }
-         
+          {popularMovies?.map((movie) => (
+            <HomeMovieCard key={movie.id} movie={movie} />
+          ))}
         </div>
       </section>
 
@@ -28,11 +25,9 @@ export default function MovieSection({
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Popular on MOVIE DB</h2>
         <div id="popularMovies" className="flex space-x-4 overflow-x-auto pb-4">
-        {
-                top_rated_movies.map((movie) => (
-                    <HomeMovieCard key={movie.id} movie={movie}/>
-                ))
-            }
+          {top_rated_movies?.map((movie) => (
+            <HomeMovieCard key={movie.id} movie={movie} />
+          ))}
         </div>
       </section>
 
@@ -43,11 +38,9 @@ export default function MovieSection({
           id="topRatedMovies"
           className="flex space-x-4 overflow-x-auto pb-4"
         >
-            {
-                trendingMovies.map((movie) => (
-                    <HomeMovieCard key={movie.id} movie={movie}/>
-                ))
-            }
+          {trendingMovies?.map((movie) => (
+            <HomeMovieCard key={movie.id} movie={movie} />
+          ))}
         </div>
       </section>
     </div>

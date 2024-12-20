@@ -19,7 +19,7 @@ export default function HeroSection() {
       <p id="heroOverview" className="text-lg max-w-2xl mb-4">
         Eddie and Venom are on the run. Hunted by both of their worlds and
         with the net closing in, the duo are forced into a devastating
-        decision that will bring the curtains down on Venom and Eddie's last
+        decision that will bring the curtains down on Venom and Eddie`&quot;`s last
         dance.
       </p>
       <button

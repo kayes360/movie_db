@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { usePathname, useSearchParams } from "next/navigation";
 import React from "react";
 import { 
   FacebookShareButton,
@@ -8,7 +9,12 @@ import {
 } from "react-share";
 
 export default function ShareOnSocialMedia() {
-  const shareUrl = window.location.href;
+    const pathname = usePathname();
+  
+    // Construct the full share URL by combining the base URL and current pathname
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+    const shareUrl = `${baseUrl}${pathname}`;
+ 
   return (
     <div className="mb-6">
       <h3 className="text-gray-400 mb-2">Share on social media</h3>

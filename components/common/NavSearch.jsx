@@ -3,11 +3,11 @@ import { useDebounce } from "@/app/hooks/useDebounce";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-export default function NavSearch() {
+// Create a separate component that uses useSearchParams
+const SearchContent = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
   const [searchTerm, setSearchTerm] = useState(query || "");
-
   const router = useRouter();
   const debouncedSetSearchTerm = useDebounce((value) => {
     setSearchTerm(value);
@@ -23,11 +23,12 @@ export default function NavSearch() {
       router.push(`/search-result?query=${encodeURIComponent(searchTerm)}`);
     }
   };
+
   useEffect(() => {
     if (!query) {
-      setSearchTerm(""); // Reset search term if there's no query in the URL
+      setSearchTerm("");
     } else {
-      setSearchTerm(query); // Otherwise, use the query from the URL
+      setSearchTerm(query);
     }
   }, [query]);
 
@@ -48,5 +49,13 @@ export default function NavSearch() {
       ></div>
     </div>
   );
+};
+
+// Main component wrapped in Suspense
+export default function NavSearch() {
+  return (
+    <React.Suspense fallback={<p>Loading...</p>}>
+      <SearchContent />
+    </React.Suspense>
+  );
 }
-// 2425-0020926908

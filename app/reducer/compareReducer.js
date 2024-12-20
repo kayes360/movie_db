@@ -1,9 +1,11 @@
 import { CompareActions } from "../actions";
-
-const initialState = JSON.parse(localStorage.getItem("comparisonState")) || [];
+const initialState = [];
+ 
 
  function compareReducer(state  , action) {
-  switch (action.type) {
+  switch (action.type) { 
+    case "INIT_STATE":
+      return action.payload;
     case CompareActions.ADD_SLOT:
       return [
         ...state,
@@ -35,7 +37,7 @@ const initialState = JSON.parse(localStorage.getItem("comparisonState")) || [];
       );
 
     default:
-      state;
+      return state;
   }
 }
 export  {initialState, compareReducer}

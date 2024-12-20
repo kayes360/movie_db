@@ -13,7 +13,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
       ).then((res) => res.json())
     
     const previousImages = (await parent).openGraph?.images || []
-   
+
     return {
         title: movie.title,
         description: movie?.overview,

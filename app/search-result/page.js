@@ -16,11 +16,10 @@ export default async function page({ searchParams: { query } }) {
   }
 
   return (
-    <div>
-      {" "}
+    <div> 
       <main className="container mx-auto px-4 pt-24 pb-8">
         <div className="mb-6">
-          <h1 className="text-2xl font-bold">Search Results for "{query}"</h1>
+          <h1 className="text-2xl font-bold">Search Results for `&quot;`{query}`&quot;`</h1>
           <p className="text-gray-400">Found {searchedData?.length} results</p>
         </div>
 

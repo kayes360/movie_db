@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 export default function page() {
@@ -6,7 +7,7 @@ export default function page() {
     <header className="mb-8">
       <h1 className="text-4xl font-bold text-white">Watch Later</h1>
       <p className="text-light/70 mt-2">
-        Movies you've saved to watch in the future
+        Movies you`&apos;`ve saved to watch in the future
       </p>
     </header>
 
@@ -14,14 +15,16 @@ export default function page() {
       id="watchLaterList"
       className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6"
     >
-      <!-- Movie Card Template -->
+   
       <div
         className="bg-moviedb-black rounded-lg overflow-hidden shadow-lg group relative"
       >
-        <img
+        <Image
           src="https://image.tmdb.org/t/p/original/pnXLFioDeftqjlCVlRmXvIdMsdP.jpg"
           alt="Armor"
           className="w-full h-[450px] object-cover"
+          height={400}
+          width={300}
         />
         <div
           className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4"
@@ -37,54 +40,7 @@ export default function page() {
           </div>
         </div>
       </div>
-
-      <div
-        className="bg-moviedb-black rounded-lg overflow-hidden shadow-lg group relative"
-      >
-        <img
-          src="https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
-          alt="Deadpool &amp; Wolverine"
-          className="w-full h-[450px] object-cover"
-        />
-        <div
-          className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4"
-        >
-          <h2 className="text-xl font-bold text-light mb-2">
-            Deadpool &amp; Wolverine
-          </h2>
-          <div className="flex justify-between items-center">
-            <span className="text-primary">2024</span>
-            <button
-              className="bg-moviedb-red text-light px-3 py-1 rounded-full hover:bg-moviedb-red/80 transition"
-            >
-              Remove
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="bg-moviedb-black rounded-lg overflow-hidden shadow-lg group relative"
-      >
-        <img
-          src="https://image.tmdb.org/t/p/original/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg"
-          alt="Movie Poster"
-          className="w-full h-[450px] object-cover"
-        />
-        <div
-          className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4"
-        >
-          <h2 className="text-xl font-bold text-light mb-2">The Wild Robot</h2>
-          <div className="flex justify-between items-center">
-            <span className="text-primary">2014</span>
-            <button
-              className="bg-moviedb-red text-light px-3 py-1 rounded-full hover:bg-moviedb-red/80 transition"
-            >
-              Remove
-            </button>
-          </div>
-        </div>
-      </div>
+ 
     </div>
 
     <div id="emptyState" className="hidden text-center py-16">

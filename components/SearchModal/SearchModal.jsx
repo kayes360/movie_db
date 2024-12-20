@@ -4,7 +4,8 @@ import SearchResultItem from "./SearchResultItem";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebounce } from "@/app/hooks/useDebounce";
 
-export default function SearchModal({ onClose, slotId }) {
+// Create a separate component that uses useSearchParams
+const SearchModalContent = ({ onClose, slotId }) => {
   const [results, setResults] = useState([]);
   const searchParams = useSearchParams();
   const { replace } = useRouter();
@@ -22,7 +23,7 @@ export default function SearchModal({ onClose, slotId }) {
     if (term) {
       try {
         const response = await fetch(`/api/movie/search?query=${term}`);
-        const data = await response.json(); 
+        const data = await response.json();
         setResults(data);
       } catch (error) {
         console.error("Error fetching search results:", error);
@@ -35,7 +36,6 @@ export default function SearchModal({ onClose, slotId }) {
   const handleSearch = (term) => {
     doSearch(term);
   };
- 
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
@@ -64,5 +64,14 @@ export default function SearchModal({ onClose, slotId }) {
         </div>
       </div>
     </div>
+  );
+};
+
+// Main component wrapped in Suspense
+export default function SearchModal({ onClose, slotId }) {
+  return (
+    <React.Suspense fallback={<p>Loading...</p>}>
+      <SearchModalContent onClose={onClose} slotId={slotId} />
+    </React.Suspense>
   );
 }

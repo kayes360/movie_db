@@ -1,12 +1,25 @@
 import React from 'react'
 
-export default function HeroSection() {
+export default async function HeroSection() {
+    let upComingSingleMovie;
+
+    try {
+      const response = await fetch(`${process.env.BASE_API_URL}/upcoming`);
+
+      if (!response.ok) {
+        throw new Error("Network Response not ok !!");
+      }
+      const upcomingMovies = await response.json();  
+      upComingSingleMovie = upcomingMovies.results[0] 
+    } catch (error) {
+      console.log("failed to fetch data");
+    }
   return (
     <div
     id="hero"
     className="relative h-screen"
     style={{
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/3V4kLQg0kSqPLctI5ziYWabAZYF.jpg")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${upComingSingleMovie?.backdrop_path}")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -14,13 +27,11 @@ export default function HeroSection() {
     <div className="absolute inset-0 bg-gradient-to-t from-black"></div>
     <div className="absolute bottom-0 left-0 p-12">
       <h1 id="heroTitle" className="text-5xl font-bold mb-4">
-        Venom: The Last Dance
+       {upComingSingleMovie?.title}
       </h1>
       <p id="heroOverview" className="text-lg max-w-2xl mb-4">
-        Eddie and Venom are on the run. Hunted by both of their worlds and
-        with the net closing in, the duo are forced into a devastating
-        decision that will bring the curtains down on Venom and Eddie`&quot;`s last
-        dance.
+      {upComingSingleMovie?.overview}
+
       </p>
       <button
         className="bg-white text-black px-8 py-2 rounded-lg font-bold hover:bg-opacity-80"

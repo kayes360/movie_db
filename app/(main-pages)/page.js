@@ -37,9 +37,11 @@ export default async function Home() {
     console.log("failed to fetch data");
   }
 
+ 
+
   return (
     <>
-      <HeroSection />
+      <HeroSection  />
       <MovieSection
         popularMovies={popularMovies}
         top_rated_movies={top_rated_movies}

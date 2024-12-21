@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.12",
+    "bcrypt": "^5.1.1",
+    "mongoose": "^8.9.2",
     "next": "14.2.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.54.2",
     "react-share": "^5.1.1"
   },
   "devDependencies": {

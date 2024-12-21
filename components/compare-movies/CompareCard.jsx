@@ -1,6 +1,6 @@
 "use client";
-import { CompareActions } from "@/app/actions";
-import { ComparisonContext } from "@/app/context/ComparisonContext";
+import { CompareActions } from "@/app/reducerActions";
+import { ComparisonContext } from "@/app/context";
 import Image from "next/image";
 import React, { useContext } from "react";
 

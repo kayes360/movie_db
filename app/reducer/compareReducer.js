@@ -1,4 +1,4 @@
-import { CompareActions } from "../actions";
+import { CompareActions } from "../reducerActions";
 const initialState = [];
  
 

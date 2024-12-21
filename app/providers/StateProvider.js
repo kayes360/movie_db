@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 
-import { ComparisonContext } from "../context/ComparisonContext";
+import { ComparisonContext } from "../context";
 import { useEffect, useReducer, useState } from "react";
 import { compareReducer, initialState } from "../reducer/compareReducer";
 

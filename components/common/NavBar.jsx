@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import NavSearch from "./NavSearch";
+import AuthChecker from "../auth/AuthChecker";
 
 export default function NavBar() {
   return (
@@ -18,12 +19,15 @@ export default function NavBar() {
               Compare Movies
             </Link>
 
-            <a href="./WatchList.html" className="text-white hover:text-gray-300">
+            <Link href="/watch-later" className="text-white hover:text-gray-300">
               Watch Later
-            </a>
+            </Link>
           </div>
         </div>
-       <NavSearch/>
+    <div className="flex items-center gap-4">
+    <NavSearch/>
+      <AuthChecker/>
+    </div>
       </div>
     </nav>
   );

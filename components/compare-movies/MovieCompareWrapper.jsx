@@ -2,8 +2,9 @@
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import CompareCard from "./CompareCard";
 import EmptySlot from "./EmptySlot"; 
-import { CompareActions } from "@/app/actions";
-import { ComparisonContext } from "@/app/context/ComparisonContext";
+import { CompareActions } from "@/app/reducerActions";
+import { ComparisonContext } from "@/app/context";
+ 
 
 export default function MovieCompareWrapper() { 
 const {state, dispatch} = useContext(ComparisonContext)

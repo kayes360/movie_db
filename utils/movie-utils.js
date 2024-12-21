@@ -6,6 +6,19 @@ const options = {
     }
   };
 
+  export const getUpcomingMovies = async () => { 
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming`, options)
+      
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data =await response.json() 
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+ }
 
 export const getNowPlayingMovies = async () => { 
     try {

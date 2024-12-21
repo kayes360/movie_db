@@ -3,7 +3,7 @@ import { replaceMongoIdInObject } from "@/utils/data-utils";
 import bcrypt from "bcrypt";
 
 export async function createUser(user) { 
-    const hashedPassword = await bcrypt.hash(user.password, 10); // 
+    const hashedPassword = await bcrypt.hash(user.password, 8); // 
     user.password = hashedPassword;   
     return await userModel.create(user);
   }

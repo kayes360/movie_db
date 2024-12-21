@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StateProvider from "./providers/StateProvider";
-import { dbConnect } from "./services/mongo";
+import  dbConnect  from "./services/mongo";
 import AuthProvider from "./providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
